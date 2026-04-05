@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="container">
+
+  <h1>SiteCraft</h1>
+
+  <!-- LOGIN -->
+  <div id="loginBox">
+    <h3>Login</h3>
+
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+    <button onclick="goDashboard()">Login</button>
+
+    <p onclick="showSignup()">Create Account</p>
+  </div>
+
+  <!-- SIGNUP -->
+  <div id="signupBox" style="display:none;">
+    <h3>Signup</h3>
+
+    <input type="text" placeholder="Name">
+    <input type="email" placeholder="Email">
+    <input type="password" placeholder="Password">
+
+    <button onclick="signupUser()">Signup</button>
+
+    <p onclick="showLogin()">Already have account?</p>
+  </div>
+
+</div>
+
+<script src="js/auth.js"></script>
+</body>
+</html>

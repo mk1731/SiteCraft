@@ -1,0 +1,84 @@
+/* RESET */
+body {
+  margin: 0;
+  font-family: 'Segoe UI';
+  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  color: white;
+  scroll-behavior: smooth;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 50px;
+  background: rgba(2,6,23,0.8);
+}
+
+.navbar a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+/* BUTTON */
+.btn {
+  background: #3b82f6;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+/* HERO SECTION */
+.hero {
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 80px;
+}
+
+/* LEFT TEXT */
+.hero-left {
+  max-width: 500px;
+}
+
+.hero-left h1 {
+  font-size: 55px;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.hero-left p {
+  color: #cbd5f5;
+  margin-bottom: 25px;
+}
+
+/* BUTTON FIXED POSITION */
+.main-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  font-size: 16px;
+  background: #3b82f6;
+  border-radius: 8px;
+  text-decoration: none;
+  color: white;
+  margin-top: 10px;
+}
+
+/* RIGHT IMAGE */
+.hero-right img {
+  width: 420px;
+}
+
+/* SECTIONS */
+.section {
+  padding: 80px;
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #020617;
+}

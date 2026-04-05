@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Create Website</title>
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+<div class="container" style="width:500px; max-height:90vh; overflow-y:auto; margin:20px 0;">
+
+  <h1>SiteCraft</h1>
+  <h3>Create Your Website</h3>
+
+  <form id="createForm">
+
+    <input type="text" id="websiteName" placeholder="Website Name" required>
+
+    <input type="file" id="logo">
+
+    <input type="text" id="tagline" placeholder="Tagline">
+
+    <input type="text" id="description" placeholder="Description">
+
+    <input type="email" id="email" placeholder="Email">
+
+    <input type="text" id="phone" placeholder="Phone">
+
+    <input type="text" id="address" placeholder="Address">
+
+    <!-- SOCIAL -->
+    <div id="socialContainer">
+      <input placeholder="Social Link">
+    </div>
+    <button type="button" onclick="addSocial()">+ Add Social</button>
+
+    <!-- CATEGORY -->
+    <select id="category" required>
+      <option value="">-- Choose Category --</option>
+      <option value="shop">Online Shop</option>
+      <option value="portfolio">Portfolio</option>
+      <option value="business">Business</option>
+    </select>
+
+    <div id="dynamicFields"></div>
+
+    <button type="submit">Create Website</button>
+
+    <button type="button" onclick="window.location.href='dashboard.html'"
+      style="background:linear-gradient(135deg,#64748b,#475569);">
+      Cancel
+    </button>
+
+  </form>
+
+</div>
+
+<script src="js/create.js"></script>
+<script src="js/generator.js"></script>
+
+</body>
+</html>
