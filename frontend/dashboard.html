@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Dashboard</title>
   <link rel="stylesheet" href="css/dashboard.css">
 </head>
+
 <body>
 
-<div class="navbar">
-  <h2>SiteCraft</h2>
-  <div>
-    <a onclick="location.href='index.html'">Home</a>
-    <a onclick="location.href='create.html'">Create</a>
+  <!-- NAVBAR -->
+  <div class="navbar">
+    <h2>SiteCraft</h2>
+
+    <div class="nav-links">
+      <a href="create.html">Create</a>
+      <a href="index.html">LogOut</a>
+    </div>
   </div>
-</div>
 
-<div class="container">
+  <!-- MAIN -->
+  <div class="container">
 
-  <h1>Welcome 👋</h1>
+    <div class="header">
+      <h1 id="welcomeText">Welcome </h1>
+      <button conclick="location.href='create.html'">Create Website</button>
+    </div>
 
-  <button onclick="location.href='create.html'">
-    + Create Website
-  </button>
+    <!-- PROJECTS -->
+    <div id="projects" class="projects"></div>
 
-  <div id="projects" class="projects"></div>
+  </div>
 
-</div>
-
-<script src="js/dashboard.js"></script>
+  <script type="module" src="js/dashboard.js"></script>
 </body>
+
 </html>

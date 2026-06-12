@@ -41,7 +41,6 @@ function renderShop() {
 function renderPortfolio() {
   form.innerHTML = `
     <input type="file" id="UserImg">
-
     <input id="name" placeholder="Your Name">
     <input type="date" id="dob">
 
@@ -77,14 +76,21 @@ function renderPortfolio() {
 
 function renderBusiness() {
   form.innerHTML = `
+    <input type="file" id="logo">
     <input id="name" placeholder="Business Name">
     <input id="desc" placeholder="Description">
+    <input type="file" id="banner" pl
+    aceholder="Banner Image">
     <input id="email" placeholder="Email">
     <input id="phone" placeholder="Phone">
 
     <h3>Services</h3>
     <div id="items"></div>
     <button type="button" onclick="addService()">+ Add Service</button>
+
+    <h3>Social Links</h3>
+    <div id="social"></div>
+    <button type="button" onclick="addSocial()">+ Add Social</button>
 
     <button type="button" onclick="submitForm(event)">Create Website</button>
   `;
@@ -123,10 +129,16 @@ function addProject() {
   document.getElementById("items").appendChild(div);
 }
 
+/* ✅ FIXED SERVICE STRUCTURE */
 function addService() {
-  const input = document.createElement("input");
-  input.placeholder = "Service Name";
-  document.getElementById("items").appendChild(input);
+  const div = document.createElement("div");
+
+  div.innerHTML = `
+    <input placeholder="Service Title">
+    <input placeholder="Service Description">
+  `;
+
+  document.getElementById("items").appendChild(div);
 }
 
 function addEducation() {
@@ -172,13 +184,14 @@ async function submitForm(e) {
     dob: document.getElementById("dob")?.value
   };
 
-  /* USER IMAGE (PORTFOLIO) */
-  const userImgFile = document.getElementById("UserImg")?.files[0];
-  if (userImgFile) data.logo = await toBase64(userImgFile);
+  /* ✅ FIXED IMAGE HANDLING */
+  const logoFile = document.getElementById("logo")?.files?.[0];
+  const userImgFile = document.getElementById("UserImg")?.files?.[0];
+  const bannerFile = document.getElementById("banner")?.files?.[0];
+if (bannerFile) data.banner = await toBase64(bannerFile);
 
-  /* SHOP LOGO */
-  const logoFile = document.getElementById("logo")?.files[0];
   if (logoFile) data.logo = await toBase64(logoFile);
+  else if (userImgFile) data.logo = await toBase64(userImgFile);
 
   /* SOCIAL */
   document.querySelectorAll("#social input").forEach(i => {
@@ -196,26 +209,32 @@ async function submitForm(e) {
     });
   });
 
-  /* ITEMS */
+  /* ✅ FIXED ITEMS HANDLING */
   const itemDivs = document.querySelectorAll("#items > div");
 
   for (let div of itemDivs) {
     const inputs = div.querySelectorAll("input");
 
-    let img = "";
-    if (inputs[0]?.files?.[0]) {
-      img = await toBase64(inputs[0].files[0]);
-    }
+    if (categoryType === "business") {
+      data.items.push({
+        title: inputs[0]?.value,
+        desc: inputs[1]?.value
+      });
+    } else {
+      let img = "";
+      if (inputs[0]?.files?.[0]) {
+        img = await toBase64(inputs[0].files[0]);
+      }
 
-    data.items.push({
-      img,
-      title: inputs[1]?.value,
-      desc: inputs[2]?.value,
-      price: inputs[3]?.value
-    });
+      data.items.push({
+        img,
+        title: inputs[1]?.value,
+        desc: inputs[2]?.value,
+        price: inputs[3]?.value
+      });
+    }
   }
 
-  /* GENERATE */
   const html = generateWebsite(data.name, categoryType, data);
 
   const projects = JSON.parse(localStorage.getItem("projects")) || [];

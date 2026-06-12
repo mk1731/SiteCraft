@@ -1,55 +1,67 @@
-/* RESET */
+/* ================= GLOBAL ================= */
+
 body {
   margin: 0;
-  font-family: 'Segoe UI';
-  background: linear-gradient(135deg, #0f172a, #1e3a8a);
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #f8fafc, #e0f2fe);
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
-/* CARD */
+/* ================= CARD ================= */
+
 .container {
-  width: 350px;
+  width: 360px;
   padding: 35px;
-  border-radius: 15px;
-  background: rgba(2, 6, 23, 0.85);
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-/* TITLE */
+/* ================= TITLE ================= */
+
 .container h1 {
   margin-bottom: 10px;
+  color: #0f172a;
 }
 
 .container h3 {
   margin-bottom: 20px;
-  color: #cbd5f5;
+  color: #475569;
 }
 
-/* INPUTS */
+/* ================= INPUTS ================= */
+
 input {
   width: 100%;
   padding: 12px;
   margin: 12px 0;
   border-radius: 8px;
-  border: none;
+  border: 1px solid #cbd5f5;
   outline: none;
-  background: #1e293b;
-  color: white;
+  background: #f8fafc;
+  color: #0f172a;
+  transition: 0.2s;
 }
 
-/* BUTTON */
+input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+/* ================= BUTTON ================= */
+
 button {
   width: 100%;
   padding: 12px;
   margin-top: 15px;
   border: none;
   border-radius: 8px;
-  background: linear-gradient(135deg, #3b82f6, #6366f1);
+  background: linear-gradient(135deg, #3b82f6, #0ea5e9);
   color: white;
   font-size: 15px;
   cursor: pointer;
@@ -57,62 +69,65 @@ button {
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(59,130,246,0.3);
 }
 
-/* TOGGLE TEXT */
+/* ================= TOGGLE TEXT ================= */
+
 p {
   margin-top: 15px;
   cursor: pointer;
-  color: #60a5fa;
+  color: #2563eb;
+  font-size: 14px;
 }
 
-/* SIGNUP BOX */
-#signup {
-  margin-top: 15px;
+p:hover {
+  text-decoration: underline;
 }
-/* SELECT DROPDOWN */
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 500px) {
+  .container {
+    width: 90%;
+  }
+}/* ================= DROPDOWN FIX ================= */
+
 select {
   width: 100%;
-  padding: 12px;
+  max-width: 250px;
+  padding: 12px 14px;
+  margin-top: 15px;
+
   border-radius: 10px;
-  border: none;
-  outline: none;
-  background: #1e293b;
-  color: white;
+  border: 1px solid #d1d5db;
+
+  background: #f9fafb;
+  color: #111827;
+
   font-size: 14px;
-  margin: 12px 0;
+  font-weight: 500;
+
+  outline: none;
   cursor: pointer;
-  transition: 0.3s;
+
+  transition: all 0.3s ease;
 }
 
+/* Hover */
 select:hover {
-  background: #334155;
+  border-color: #3b82f6;
 }
 
+/* Focus */
 select:focus {
-  box-shadow: 0 0 0 2px #3b82f6;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
 }
 
 /* Dropdown options */
 option {
-  background: #0f172a;
-  color: white;
-}
-select {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: none;
-  background: #1e293b;
-  color: white;
-  margin: 12px 0;
-}
-
-select:hover { background: #334155; }
-select:focus { box-shadow: 0 0 0 2px #3b82f6; }
-
-option {
-  background: #0f172a;
-  color: white;
+  background: white;
+  color: #111827;
 }
